@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: outfits_production
-  username: outfits
-  password: <%= ENV['OUTFITS_DATABASE_PASSWORD'] %>
+  database: postgresql
+  username: unicode
+  pool: 5
