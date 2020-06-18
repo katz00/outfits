@@ -15,7 +15,7 @@ RSpec.describe "ユーザー登録", type: :request do
       post users_path, params:{ user:{ name: "Example User",
                                       email: "example@sample.com",
                                       password: "password",
-                                      password_confirmation: "password"}}
+                                      password_confirmation: "password" } }
       }.to change(User, :count).by(1)
       redirect_to @user
       follow_redirect!
@@ -27,7 +27,7 @@ RSpec.describe "ユーザー登録", type: :request do
       post users_path, params:{ user:{ name: "",
                                       email: "example@sample.com",
                                       password: "password",
-                                      password_confirmation: "pass"}}
+                                      password_confirmation: "pass" } }
       }.not_to change(User, :count)
   end
 end

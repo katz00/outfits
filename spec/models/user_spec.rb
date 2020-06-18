@@ -9,25 +9,25 @@ RSpec.describe User, type: :model do
     end
 
     it "名前がなければ無効であること" do
-      user = build(:user, name: nil )
+      user = build(:user, name: nil)
       user.valid?
       expect(user.errors[:name]).to include "を入力してください"
     end
 
     it "名前が50文字以上なら無効であること" do
-      user = build(:user, name: "a" * 51 )
+      user = build(:user, name: "a" * 51)
       user.valid?
       expect(user.errors[:name]).to include "は50文字以内で入力してください"
     end
 
     it "メールアドレスがなければ無効であること"do
-      user = build(:user, email: nil )
+      user = build(:user, email: nil)
       user.valid?
       expect(user.errors[:email]).to include "を入力してください"
     end
 
     it "メールアドレスが255文字以上なら無効であること" do
-      user = build(:user, email: " #{ "a" * 244 }@example.com" )
+      user = build(:user, email: " #{ "a" * 244 }@example.com")
       user.valid?
       expect(user.errors[:email]).to include "は255文字以内で入力してください"
     end
