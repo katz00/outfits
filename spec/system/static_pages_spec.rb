@@ -30,5 +30,4 @@ RSpec.describe "StaticPages", type: :system do
       expect(page).to have_title full_title
     end
   end
-  
 end

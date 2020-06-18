@@ -1,4 +1,4 @@
-#システムスペック用の設定
+# システムスペック用の設定
 Capybara.javascript_driver = :chrome_headless
 
 RSpec.configure do |config|
