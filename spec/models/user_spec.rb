@@ -15,7 +15,7 @@ RSpec.describe User, type: :model do
     end
 
     it "名前が50文字以上なら無効であること" do
-      user = build(:user, name: " a * 51 " )
+      user = build(:user, name: "a" * 51 )
       user.valid?
       expect(user.errors[:name]).to include "は50文字以内で入力してください"
     end
@@ -33,13 +33,13 @@ RSpec.describe User, type: :model do
     end
 
     it "重複したメールアドレスは無効であること" do
-      other_user = build(:user, email: user.email )
+      other_user = build(:user, email: user.email)
       other_user.valid?
-      expect(other_user.errors[:email]).to include "はすでに存在しています"
+      expect(other_user.errors[:email]).to include "はすでに存在します"
     end
 
     it "メールアドレスは小文字で保存されること" do
-      emial = "ExamPle@sample.com"
+      email = "ExamPle@sample.com"
       user = create(:user, email: email)
       expect(user.email).to eq email.downcase
     end
