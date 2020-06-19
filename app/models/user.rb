@@ -26,6 +26,10 @@ class User < ApplicationRecord
       return false remember_digest.nil?
       BCrypt::Password.new(remember_token).is_password?(remember_token)
     end
+    # remember_digestを破棄する
+    def forget
+      update_attribute(:remember_digest, nil)
+    end
   end
 
   private
