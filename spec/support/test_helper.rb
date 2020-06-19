@@ -1,1 +1,6 @@
 include ApplicationHelper
+
+# ログインしているか確認
+def is_logged_in?
+  !session[:user_id].nil?
+end
