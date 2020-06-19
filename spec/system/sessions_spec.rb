@@ -34,8 +34,6 @@ RSpec.describe "ログイン", type: :system do
       it "ログインボタンが表示されていること" do
         expect(page).to have_button 'ログイン'
       end
-
-
     end
   end
 end
