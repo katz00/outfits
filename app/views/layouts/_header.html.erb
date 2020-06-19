@@ -3,10 +3,23 @@
     <%= link_to(image_tag("header_logo.jpg", :alt => ""), root_path, id: "logo")%>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li>
-          <%= link_to "outfitsとは？", about_path %>
-          <%= link_to "新規登録(無料)", signup_path %>
-        </li>
+          <li><%= link_to 'outfitsとは？', about_path %></li>
+          <% if logged_in? %>
+            <li><%= link_to 'ユーザー一覧', users_path %></li>
+            <div class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                アカウント<b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><%= link_to 'プロフィール', user_path(current_user)%></li>
+                <li class="divider"></li>
+                <li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
+              </ul>
+            </div>
+          <% else %>
+            <%= link_to "新規登録(無料)", signup_path %>
+            <%= link_to "ログイン", login_path %>
+          <% end %>
       </ul>
     </nav>
   </div>
