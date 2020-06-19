@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       redirect_to user_url(user)
     else
       flash.now[:danger] = "メールアドレスとパスワードの組み合わせが間違っています"
-      render 'users/new'
+      render 'sessions/new'
     end
 
   end
