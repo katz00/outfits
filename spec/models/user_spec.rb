@@ -56,4 +56,10 @@ RSpec.describe User, type: :model do
       expect(user.errors[:password]).to include "は6文字以上で入力してください"
     end
   end
+
+  context "authenticated?メソッド" do
+    it "remember_digestがnilの場合、falseを返すこと" do
+      expect(user.authenticated?('')).to eq false
+    end
+  end
 end
