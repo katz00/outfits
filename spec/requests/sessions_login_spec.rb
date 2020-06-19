@@ -18,8 +18,11 @@ RSpec.describe "ログイン", type: :request do
     expect(response).to render_template 'users/show'
     expect(is_logged_in?).to be_truthy
     delete logout_path
-    redirect_to login_path
     expect(is_logged_in?).not_to be_truthy
+    redirect_to login_path
+    # 2窓のもう一方でログアウトを試みる
+    delete logout_path
+    follow_redirect!
   end
 
 end
